@@ -1,4 +1,4 @@
-package com.miser.little.ServerEnum;
+package com.miser.little.serverEnum;
 
 
 import lombok.Getter;
@@ -8,6 +8,11 @@ public enum RequestEnum {
 
     SUCCESS("000000","成功"),
     ERROR("999999","系统异常"),
+    //用户模块异常编码
+    PASSWORD_ERROR("100100","用户名或密码错误，请确认！"),
+
+
+
     ;
 
     private String code;

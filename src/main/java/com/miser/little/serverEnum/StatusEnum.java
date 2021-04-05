@@ -1,4 +1,4 @@
-package com.miser.little.ServerEnum;
+package com.miser.little.serverEnum;
 
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;

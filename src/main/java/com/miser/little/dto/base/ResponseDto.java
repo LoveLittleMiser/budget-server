@@ -1,6 +1,6 @@
 package com.miser.little.dto.base;
 
-import com.miser.little.ServerEnum.RequestEnum;
+import com.miser.little.serverEnum.RequestEnum;
 import lombok.Data;
 import java.util.Date;
 
@@ -34,6 +34,13 @@ public class ResponseDto<T> {
     private void setCodeAndMessage(RequestEnum requestEnum){
         this.code = requestEnum.getCode();
         this.message = requestEnum.getValue();
+    }
+
+    public static <I> ResponseDto<I> error(RequestEnum requestEnum){
+        ResponseDto<I> responseDto = new ResponseDto<>();
+        responseDto.setTime(new Date());
+        responseDto.setCodeAndMessage(requestEnum);
+        return responseDto;
     }
 
 }

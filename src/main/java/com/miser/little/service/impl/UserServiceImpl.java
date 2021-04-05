@@ -1,5 +1,6 @@
 package com.miser.little.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.miser.little.dto.user.UserAddDto;
@@ -66,4 +67,13 @@ public class UserServiceImpl implements UserService {
         userRepository.updateById(userEntity);
     }
 
+    @Override
+    public UserEntity selectUserByAccountNumb(String accountNumber) {
+        LambdaQueryWrapper queryWrapper = new LambdaQueryWrapper<UserEntity>()
+                .eq(StringUtils.isNotBlank(accountNumber),
+                UserEntity::getAccountNumber,
+                accountNumber);
+        UserEntity userEntity = userRepository.getOne(queryWrapper);
+        return userEntity;
+    }
 }
